@@ -1,26 +1,45 @@
 "use client";
 
-import { StaggeredMenu } from '@/components/StaggeredMenu';
-
-const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-  { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-  { label: 'Services', ariaLabel: 'View our services', link: '/services' },
-  { label: 'FAQ\'s', ariaLabel: 'Frequently asked questions', link: '/faq' },
-  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
-];
-
+import CardNav from '@/components/CardNav';
 import { Phone, Mail } from 'lucide-react';
 
-const socialItems = [
-  { label: '(619) 983-8540', link: 'tel:6199838540', icon: <Phone size={18} /> },
-  { label: 'Info@bvirtualbusiness.com', link: 'mailto:Info@bvirtualbusiness.com', icon: <Mail size={18} /> }
+const cardNavItems = [
+  {
+    label: 'Explore',
+    bgColor: '#f4f4f4',
+    textColor: '#2e3044',
+    links: [
+      { label: 'Home', ariaLabel: 'Go to home page', href: '/' },
+      { label: 'About', ariaLabel: 'Learn about us', href: '/about' },
+      { label: 'FAQ\'s', ariaLabel: 'Frequently asked questions', href: '/faq' },
+    ],
+  },
+  {
+    label: 'Services',
+    bgColor: '#4d87e0',
+    textColor: '#fff',
+    links: [
+      { label: 'Our Services', ariaLabel: 'View our services', href: '/services' },
+    ],
+  },
+  {
+    label: 'Contact',
+    bgColor: '#2e3044',
+    textColor: '#fff',
+    links: [
+      { label: 'Contact Us', ariaLabel: 'Get in touch', href: '/contact' },
+      { label: '(619) 983-8540', ariaLabel: 'Call us', href: 'tel:6199838540' },
+      { label: 'Email Us', ariaLabel: 'Email us', href: 'mailto:Info@bvirtualbusiness.com' },
+    ],
+  },
 ];
+
 import { HeroSection } from "@/components/HeroSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { FaqSection } from "@/components/FaqSection";
 import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
+import { QuoteSection } from "@/components/QuoteSection";
 
 export default function Home() {
   return (
@@ -72,21 +91,13 @@ export default function Home() {
         }}
       />
       <div className="relative z-10">
-        <StaggeredMenu
-          position="right"
-          items={menuItems}
-          socialItems={socialItems}
-          displaySocials
-          displayItemNumbering={true}
-          menuButtonColor="var(--primary)"
-          openMenuButtonColor="var(--primary)"
-          changeMenuColorOnOpen={true}
-          colors={['var(--secondary)', 'var(--primary)']}
-          logoUrl="/assets/Bvirtual-Logo-2.png"
-          accentColor="var(--accent)"
-          isFixed={true}
-          onMenuOpen={() => console.log('Menu opened')}
-          onMenuClose={() => console.log('Menu closed')}
+        <CardNav
+          logo="/assets/Bvirtual-Logo-2.png"
+          items={cardNavItems}
+          baseColor="#ffffff"
+          menuColor="#2e3044"
+          buttonBgColor="#4d87e0"
+          buttonTextColor="#ffffff"
         />
         <main className="min-h-screen pt-[120px]">
           <HeroSection />
@@ -94,6 +105,7 @@ export default function Home() {
           <ServicesSection />
           <WhyChooseUsSection />
           <FaqSection />
+          <QuoteSection />
         </main>
       </div>
     </div>
