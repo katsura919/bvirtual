@@ -57,8 +57,6 @@ const BentoCard = ({
   >
     <div className="absolute inset-0 z-0">
       {background}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-sm" />
     </div>
     
     <div className="pointer-events-none z-10 flex flex-col gap-1 p-8 pt-0 transition-all duration-300 group-hover:-translate-y-10">

@@ -27,16 +27,16 @@ export const DeliveryVisual = () => (
       initial={{ x: -20, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className="absolute top-10 left-6 z-20 w-48 rounded-2xl bg-white dark:bg-neutral-800 p-4 shadow-xl border border-neutral-100 dark:border-neutral-700"
+      className="absolute top-10 left-6 z-20 w-48 rounded-2xl bg-white dark:bg-[#1e2030] p-4 shadow-xl border border-[#4d87e0]/20 dark:border-[#2e3044]"
     >
       <div className="flex gap-2 mb-2">
-        <div className="h-6 w-6 rounded-full bg-neutral-200" />
+        <div className="h-6 w-6 rounded-full bg-[#d9d9d9]" />
         <div className="flex-1">
-          <div className="h-2 w-12 bg-neutral-100 dark:bg-neutral-700 rounded mb-1" />
-          <div className="h-1.5 w-8 bg-neutral-50 dark:bg-neutral-600 rounded" />
+          <div className="h-2 w-12 bg-[#4d87e0] rounded mb-1" />
+          <div className="h-1.5 w-8 bg-[#2e3044] rounded" />
         </div>
       </div>
-      <p className="text-[10px] text-neutral-500 line-clamp-2">
+      <p className="text-[10px] text-[#444] dark:text-[#d9d9d9] line-clamp-2">
         "Clean design, fast delivery and great communication..."
       </p>
     </motion.div>
@@ -45,17 +45,17 @@ export const DeliveryVisual = () => (
     <motion.div 
       initial={{ y: 40, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      className="absolute top-8 right-[-10%] z-10 w-72 rounded-3xl bg-neutral-900 dark:bg-black p-6 shadow-2xl border border-neutral-800"
+      className="absolute top-8 right-[-10%] z-10 w-72 rounded-3xl bg-[#2e3044] dark:bg-black p-6 shadow-2xl border border-[#1e2030]"
     >
       <div className="flex justify-between items-start mb-6">
         <div>
-          <p className="text-neutral-400 text-xs font-medium">+ 40 new clients</p>
+          <p className="text-[#4d87e0] text-xs font-medium">+ 40 new clients</p>
           <p className="text-white text-lg font-bold">Growth metrics</p>
         </div>
-        <Plus className="text-neutral-500 h-4 w-4" />
+        <Plus className="text-[#d9d9d9] h-4 w-4" />
       </div>
       
-      {/* Turquoise Graph Mockup */}
+      {/* Blue Graph Mockup */}
       <div className="relative h-24 w-full flex items-end gap-1">
         <svg viewBox="0 0 100 40" className="w-full h-full overflow-visible">
           <motion.path
@@ -70,18 +70,18 @@ export const DeliveryVisual = () => (
             }}
             d="M0 35 Q 10 35, 20 20 T 40 25 T 60 10 T 80 15 T 100 5"
             fill="none"
-            stroke="#2dd4bf"
+            stroke="#4d87e0"
             strokeWidth="2"
           />
           <motion.path
              initial={{ opacity: 0 }}
              whileInView={{ opacity: 0.1 }}
             d="M0 35 Q 10 35, 20 20 T 40 25 T 60 10 T 80 15 T 100 5 V 40 H 0 Z"
-            fill="#2dd4bf"
+            fill="#4d87e0"
           />
         </svg>
       </div>
-      <p className="text-neutral-500 text-[10px] mt-4">Over the last month</p>
+      <p className="text-[#d9d9d9] text-[10px] mt-4">Over the last month</p>
     </motion.div>
 
     {/* Background dots */}
@@ -108,11 +108,11 @@ export const CustomDesignVisual = () => {
     <div className="relative h-full w-full flex items-center justify-center bg-transparent overflow-hidden">
       {/* Central Hub */}
       <div className="relative z-10 flex items-center justify-center">
-        <div className="h-20 w-20 rounded-full border-2 border-neutral-900 dark:border-white bg-white dark:bg-neutral-800 flex items-center justify-center shadow-lg">
+        <div className="h-20 w-20 rounded-full border-2 border-[#2e3044] dark:border-white bg-white dark:bg-[#1e2030] flex items-center justify-center shadow-lg">
           <motion.div 
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="h-12 w-12 rounded-full border border-dashed border-neutral-300 dark:border-neutral-600"
+            className="h-12 w-12 rounded-full border border-dashed border-[#4d87e0] dark:border-[#4d87e0]"
           />
         </div>
         
@@ -120,22 +120,22 @@ export const CustomDesignVisual = () => {
         {satellites.map((sat, i) => (
           <motion.div
             key={i}
-            className="absolute flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700 shadow-sm whitespace-nowrap"
+            className="absolute z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-[#2e3044] border border-[#d9d9d9] dark:border-[#444] shadow-sm whitespace-nowrap"
             style={{
               x: Math.cos((sat.angle * Math.PI) / 180) * 120,
               y: Math.sin((sat.angle * Math.PI) / 180) * 120,
             }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
             transition={{ delay: i * 0.1 }}
           >
-            <span className="text-neutral-900 dark:text-white">{sat.icon}</span>
-            <span className="text-[10px] font-medium text-neutral-500">{sat.label}</span>
+            <span className="text-[#4d87e0] dark:text-white">{sat.icon}</span>
+            <span className="text-[10px] font-medium text-[#2e3044] dark:text-[#d9d9d9]">{sat.label}</span>
           </motion.div>
         ))}
 
         {/* Orbit Rings */}
-        <div className="absolute h-[240px] w-[240px] rounded-full border border-neutral-200 dark:border-neutral-800 opacity-50" />
+        <div className="absolute h-[240px] w-[240px] rounded-full border border-[#d9d9d9] dark:border-[#2e3044]" />
       </div>
     </div>
   );
@@ -189,7 +189,10 @@ export const ScaleVisual = () => (
 export const PricingVisual = () => (
   <div className="relative h-full w-full bg-transparent flex items-center justify-center overflow-hidden">
     {/* Envelope Back */}
-    <div className="relative w-64 h-48 bg-neutral-100 dark:bg-neutral-800 rounded-lg shadow-inner flex items-center justify-center">
+    <div 
+      className="relative w-64 h-48 bg-[#f4f4f4] dark:bg-[#1e2030] rounded-lg shadow-inner flex items-center justify-center"
+      style={{ clipPath: 'polygon(-100% -100%, 200% -100%, 200% 100%, -100% 100%)' }}
+    >
       {/* Pricing Card Sliding Up */}
       <motion.div
         initial={{ y: 20 }}
@@ -201,24 +204,24 @@ export const PricingVisual = () => (
           repeatDelay: 2,
           repeatType: "reverse"
         }}
-        className="z-10 w-48 bg-white dark:bg-neutral-800 rounded-xl shadow-2xl border border-neutral-100 dark:border-neutral-700 p-5 rotate-[-2deg]"
+        className="z-10 w-48 bg-white dark:bg-[#2e3044] rounded-xl shadow-2xl border border-[#d9d9d9] dark:border-[#444] p-5 rotate-[-2deg]"
       >
         <div className="flex items-center gap-2 mb-4">
-          <div className="h-8 w-8 rounded-full bg-neutral-100 dark:bg-neutral-700 animate-pulse" />
-          <div className="h-3 w-20 bg-neutral-100 dark:bg-neutral-700 rounded" />
+          <div className="h-8 w-8 rounded-full bg-[#f4f4f4] dark:bg-[#1e2030] animate-pulse" />
+          <div className="h-3 w-20 bg-[#f4f4f4] dark:bg-[#1e2030] rounded" />
         </div>
         <div className="space-y-2 mb-6">
           <div className="flex justify-between items-end">
-            <span className="text-2xl font-black text-neutral-900 dark:text-white">$2,500</span>
-            <span className="text-[10px] font-bold text-neutral-400">1 week</span>
+            <span className="text-2xl font-black text-[#2e3044] dark:text-white">$2,500</span>
+            <span className="text-[10px] font-bold text-[#444] dark:text-[#d9d9d9]">1 week</span>
           </div>
-          <p className="text-[10px] text-neutral-500">Design + Development package</p>
+          <p className="text-[10px] text-[#444] dark:text-[#d9d9d9]">Design + Development package</p>
         </div>
-        <div className="h-8 w-full bg-neutral-900 dark:bg-white rounded-lg" />
+
       </motion.div>
       
       {/* Front of envelope pieces */}
-      <div className="absolute left-0 bottom-0 w-full h-24 bg-neutral-200 dark:bg-neutral-700 rounded-b-lg clip-path-envelope z-20" 
+      <div className="absolute left-0 bottom-0 w-full h-24 bg-[#4d87e0] dark:bg-[#4d87e0] rounded-b-lg clip-path-envelope z-20" 
            style={{ clipPath: 'polygon(0 100%, 100% 100%, 50% 0)' }} />
     </div>
   </div>
@@ -398,10 +401,10 @@ export const MaintenanceVisual = () => (
       <motion.div
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="relative z-10 h-24 w-24 rounded-full bg-white dark:bg-neutral-900 border-2 border-neutral-200 dark:border-neutral-800 flex items-center justify-center shadow-xl"
+        className="relative z-10 h-24 w-24 rounded-full bg-white dark:bg-[#1e2030] border-2 border-[#f4f4f4] dark:border-[#2e3044] flex items-center justify-center shadow-xl"
       >
-        <div className="h-12 w-12 rounded-lg bg-neutral-900 dark:bg-white flex items-center justify-center">
-          <CheckCircle2 className="h-6 w-6 text-emerald-500" />
+        <div className="h-12 w-12 rounded-lg bg-[#4d87e0] dark:bg-white flex items-center justify-center">
+          <CheckCircle2 className="h-6 w-6 text-white" />
         </div>
       </motion.div>
       
@@ -417,7 +420,7 @@ export const MaintenanceVisual = () => (
             delay: i * 0.6,
             ease: "easeOut"
           }}
-          className="absolute h-24 w-24 rounded-full border border-neutral-400 dark:border-neutral-600"
+          className="absolute h-24 w-24 rounded-full border border-[#4d87e0] dark:border-[#4d87e0]"
         />
       ))}
       
@@ -425,18 +428,18 @@ export const MaintenanceVisual = () => (
       <motion.div 
         initial={{ x: -40, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        className="absolute top-0 right-[-60%] bg-white dark:bg-neutral-800 px-3 py-1.5 rounded-full border border-neutral-100 dark:border-neutral-700 shadow-sm flex items-center gap-2"
+        className="absolute top-0 right-[-60%] bg-white dark:bg-[#2e3044] px-3 py-1.5 rounded-full border border-[#f4f4f4] dark:border-[#444] shadow-sm flex items-center gap-2"
       >
-        <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span className="text-[10px] font-bold dark:text-white">99.9% Uptime</span>
+        <div className="h-2 w-2 rounded-full bg-[#4d87e0] animate-pulse" />
+        <span className="text-[10px] font-bold text-[#2e3044] dark:text-white">99.9% Uptime</span>
       </motion.div>
       
       <motion.div 
         initial={{ x: 40, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        className="absolute bottom-0 left-[-60%] bg-white dark:bg-neutral-800 px-3 py-1.5 rounded-full border border-neutral-100 dark:border-neutral-700 shadow-sm flex items-center gap-2"
+        className="absolute bottom-0 left-[-60%] bg-white dark:bg-[#2e3044] px-3 py-1.5 rounded-full border border-[#f4f4f4] dark:border-[#444] shadow-sm flex items-center gap-2"
       >
-        <span className="text-[10px] font-bold dark:text-white">SSL Secure</span>
+        <span className="text-[10px] font-bold text-[#2e3044] dark:text-white">SSL Secure</span>
       </motion.div>
     </div>
   </div>

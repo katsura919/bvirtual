@@ -60,7 +60,7 @@ export function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block bg-[#fff4e7] rounded-[30px] px-[18px] py-[6px] mb-4 text-[14px] font-semibold text-[#ffb55a]"
+            className="inline-block bg-[#4d87e0]/10 rounded-[30px] px-[18px] py-[6px] mb-4 text-[14px] font-semibold text-[#4d87e0]"
           >
             Why Choose Us
           </motion.div>
