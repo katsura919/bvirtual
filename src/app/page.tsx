@@ -18,6 +18,7 @@ const socialItems = [
 ];
 import { HeroSection } from '@/components/HeroSection';
 import { BenefitsSection } from '@/components/BenefitsSection';
+import { ServicesSection } from '@/components/ServicesSection';
 
 export default function Home() {
   return (
@@ -88,6 +89,7 @@ export default function Home() {
         <main className="min-h-screen pt-[120px]">
           <HeroSection />
           <BenefitsSection />
+          <ServicesSection />
         </main>
       </div>
     </div>

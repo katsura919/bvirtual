@@ -13,7 +13,8 @@ import {
   Code, 
   Search,
   CheckCircle2,
-  TrendingUp
+  TrendingUp,
+  FileCheck
 } from "lucide-react";
 
 /**
@@ -146,7 +147,7 @@ export const CustomDesignVisual = () => {
  * Vertical checklist stack
  */
 export const ScaleVisual = () => (
-  <div className="relative h-full w-full bg-transparent flex flex-col items-center justify-center pt-20">
+  <div className="relative h-full w-full bg-transparent flex flex-col items-center justify-start pt-8">
     <div className="w-full max-w-xs space-y-4 px-8">
       {[
         { title: "Adjusting color scheme", status: "Completed", time: "just now", icon: <Palette className="h-4 w-4" /> },
@@ -163,15 +164,15 @@ export const ScaleVisual = () => (
             repeatDelay: 2.5,
             repeatType: "reverse"
           }}
-          className="bg-white dark:bg-neutral-800 p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm flex items-start gap-3"
+          className="bg-white dark:bg-[#1e2030] p-4 rounded-xl border border-[#f4f4f4] dark:border-[#2e3044] shadow-sm flex items-start gap-3"
         >
           <div className="mt-1 flex-shrink-0">
-            {i === 0 ? <CheckCircle2 className="h-4 w-4 text-emerald-500" /> : <div className="h-4 w-4 rounded-full border border-neutral-300 dark:border-neutral-600" />}
+            {i === 0 ? <CheckCircle2 className="h-4 w-4 text-[#4d87e0]" /> : <div className="h-4 w-4 rounded-full border border-[#d9d9d9] dark:border-[#444]" />}
           </div>
           <div className="flex-1">
-            <p className="text-[10px] text-neutral-400 font-medium mb-1">{item.time}</p>
-            <p className="text-xs font-bold text-neutral-900 dark:text-white">{item.title}</p>
-            {i === 0 && <p className="text-[10px] text-emerald-500 font-bold mt-1">✓ {item.status}</p>}
+            <p className="text-[10px] text-[#444] dark:text-[#d9d9d9] font-medium mb-1">{item.time}</p>
+            <p className="text-xs font-bold text-[#2e3044] dark:text-white">{item.title}</p>
+            {i === 0 && <p className="text-[10px] text-[#4d87e0] font-bold mt-1">✓ {item.status}</p>}
           </div>
         </motion.div>
       ))}
@@ -236,22 +237,22 @@ export const LandingPageVisual = () => (
     <motion.div 
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="w-[85%] h-full bg-white dark:bg-neutral-900 rounded-t-2xl border-x-2 border-t-2 border-neutral-200 dark:border-neutral-800 shadow-2xl overflow-hidden"
+      className="w-[85%] h-full bg-white dark:bg-[#1e2030] rounded-t-2xl border-x-2 border-t-2 border-[#f4f4f4] dark:border-[#2e3044] shadow-2xl overflow-hidden"
     >
       {/* Browser Bar */}
-      <div className="h-8 w-full bg-neutral-100 dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 flex items-center px-4 gap-1.5">
+      <div className="h-8 w-full bg-[#f4f4f4] dark:bg-[#2e3044] border-b border-[#d9d9d9] dark:border-[#444] flex items-center px-4 gap-1.5">
         <div className="h-2 w-2 rounded-full bg-red-400" />
         <div className="h-2 w-2 rounded-full bg-amber-400" />
-        <div className="h-2 w-2 rounded-full bg-emerald-400" />
+        <div className="h-2 w-2 rounded-full bg-[#4d87e0]" />
       </div>
       
       {/* Content Mockup */}
       <div className="p-6 space-y-6">
         <div className="flex justify-between items-center">
-          <div className="h-4 w-24 bg-neutral-100 dark:bg-neutral-800 rounded" />
+          <div className="h-4 w-24 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
           <div className="flex gap-4">
-            <div className="h-2 w-10 bg-neutral-100 dark:bg-neutral-800 rounded" />
-            <div className="h-2 w-10 bg-neutral-100 dark:bg-neutral-800 rounded" />
+            <div className="h-2 w-10 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
+            <div className="h-2 w-10 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
           </div>
         </div>
         
@@ -260,15 +261,15 @@ export const LandingPageVisual = () => (
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-            className="h-8 w-2/3 bg-neutral-900 dark:bg-white rounded origin-left" 
+            className="h-8 w-2/3 bg-[#4d87e0] rounded origin-left" 
           />
-          <div className="h-4 w-full bg-neutral-100 dark:bg-neutral-800 rounded" />
-          <div className="h-4 w-3/4 bg-neutral-100 dark:bg-neutral-800 rounded" />
+          <div className="h-4 w-full bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
+          <div className="h-4 w-3/4 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
         </div>
         
         <div className="flex gap-3">
-          <div className="h-10 w-28 bg-neutral-200 dark:bg-neutral-700 rounded-lg" />
-          <div className="h-10 w-28 border-2 border-neutral-100 dark:border-neutral-800 rounded-lg" />
+          <div className="h-10 w-28 bg-[#d9d9d9] dark:bg-[#444] rounded-lg" />
+          <div className="h-10 w-28 border-2 border-[#f4f4f4] dark:border-[#2e3044] rounded-lg" />
         </div>
       </div>
     </motion.div>
@@ -284,20 +285,20 @@ export const DashboardVisual = () => (
     <div className="grid grid-cols-2 gap-4 w-full h-full max-w-sm">
       {/* Main Chart */}
       <motion.div 
-        className="col-span-2 h-32 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4 shadow-sm"
+        className="col-span-2 h-32 bg-white dark:bg-[#1e2030] rounded-2xl border border-[#f4f4f4] dark:border-[#2e3044] p-4 shadow-sm"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ repeat: Infinity, repeatDelay: 2, repeatType: "reverse" }}
       >
         <div className="flex justify-between items-center mb-4">
-          <div className="h-2 w-16 bg-neutral-200 dark:bg-neutral-700 rounded" />
-          <Zap className="h-3 w-3 text-amber-500" />
+          <div className="h-2 w-16 bg-[#d9d9d9] dark:bg-[#444] rounded" />
+          <Zap className="h-3 w-3 text-[#4d87e0]" />
         </div>
         <div className="flex items-end gap-1 h-12">
           {[40, 70, 45, 90, 65, 80, 50, 85].map((h, i) => (
             <motion.div
               key={i}
-              className="flex-1 bg-neutral-900 dark:bg-white rounded-t-sm"
+              className="flex-1 bg-[#4d87e0] rounded-t-sm"
               initial={{ height: 0 }}
               animate={{ height: `${h}%` }}
               transition={{ delay: i * 0.1, duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
@@ -307,19 +308,19 @@ export const DashboardVisual = () => (
       </motion.div>
       
       {/* Pulse Card 1 */}
-      <div className="h-24 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4 flex flex-col justify-between">
-        <Users className="h-4 w-4 text-emerald-500" />
+      <div className="h-24 bg-white dark:bg-[#1e2030] rounded-2xl border border-[#f4f4f4] dark:border-[#2e3044] p-4 flex flex-col justify-between">
+        <Users className="h-4 w-4 text-[#4d87e0]" />
         <div>
-          <div className="h-1 w-8 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" />
-          <div className="h-3 w-12 bg-neutral-900 dark:bg-white rounded" />
+          <div className="h-1 w-8 bg-[#f4f4f4] dark:bg-[#2e3044] rounded mb-2" />
+          <div className="h-3 w-12 bg-[#2e3044] dark:bg-white rounded" />
         </div>
       </div>
       
       {/* Pulse Card 2 */}
-      <div className="h-24 bg-neutral-900 dark:bg-black rounded-2xl border border-neutral-800 p-4 flex flex-col justify-between shadow-2xl">
+      <div className="h-24 bg-[#2e3044] dark:bg-black rounded-2xl border border-[#1e2030] p-4 flex flex-col justify-between shadow-2xl">
         <TrendingUp className="h-4 w-4 text-white" />
         <div>
-          <div className="h-1 w-8 bg-neutral-700 rounded mb-2" />
+          <div className="h-1 w-8 bg-[#444] rounded mb-2" />
           <div className="h-3 w-12 bg-white rounded" />
         </div>
       </div>
@@ -332,29 +333,29 @@ export const DashboardVisual = () => (
  * Terminal-style deployment flow
  */
 export const DeploymentVisual = () => (
-  <div className="relative h-full w-full bg-transparent flex items-center justify-center p-8 pt-16">
+  <div className="relative h-full w-full bg-transparent flex items-start justify-center p-8 pt-8">
     <motion.div 
       initial={{ scale: 0.95, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="w-full max-w-xs aspect-video bg-neutral-950 rounded-xl border border-neutral-800 p-4 font-mono shadow-2xl relative overflow-hidden"
+      className="w-full max-w-xs aspect-video bg-[#1e2030] rounded-xl border border-[#2e3044] p-4 font-mono shadow-2xl relative overflow-hidden"
     >
       <div className="flex gap-1.5 mb-3">
-        <div className="h-2 w-2 rounded-full bg-neutral-800" />
-        <div className="h-2 w-2 rounded-full bg-neutral-800" />
-        <div className="h-2 w-2 rounded-full bg-neutral-800" />
+        <div className="h-2 w-2 rounded-full bg-[#444]" />
+        <div className="h-2 w-2 rounded-full bg-[#444]" />
+        <div className="h-2 w-2 rounded-full bg-[#444]" />
       </div>
       
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-emerald-500 text-[10px]">$</span>
-          <span className="text-neutral-400 text-[10px]">npm run deploy</span>
+          <span className="text-[#4d87e0] text-[10px]">$</span>
+          <span className="text-[#d9d9d9] text-[10px]">npm run deploy</span>
         </div>
         <div className="space-y-1">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, repeat: Infinity, repeatDelay: 3 }}
-            className="text-neutral-500 text-[9px]"
+            className="text-[#d9d9d9] text-[9px]"
           >
             [1/3] Building assets...
           </motion.div>
@@ -362,7 +363,7 @@ export const DeploymentVisual = () => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, repeat: Infinity, repeatDelay: 3 }}
-            className="text-neutral-500 text-[9px]"
+            className="text-[#d9d9d9] text-[9px]"
           >
             [2/3] Uploading to edge...
           </motion.div>
@@ -370,7 +371,7 @@ export const DeploymentVisual = () => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, repeat: Infinity, repeatDelay: 3 }}
-            className="text-emerald-400 text-[9px] flex items-center gap-1"
+            className="text-[#4d87e0] text-[9px] flex items-center gap-1"
           >
             <Check className="h-2 w-2" /> [3/3] Deployment successful
           </motion.div>
@@ -384,7 +385,7 @@ export const DeploymentVisual = () => (
           scale: [1, 1.2, 1] 
         }}
         transition={{ duration: 3, repeat: Infinity }}
-        className="absolute -bottom-10 -right-10 h-32 w-32 bg-emerald-500/20 blur-3xl rounded-full"
+        className="absolute -bottom-10 -right-10 h-32 w-32 bg-[#4d87e0]/20 blur-3xl rounded-full"
       />
     </motion.div>
   </div>
@@ -442,5 +443,79 @@ export const MaintenanceVisual = () => (
         <span className="text-[10px] font-bold text-[#2e3044] dark:text-white">SSL Secure</span>
       </motion.div>
     </div>
+  </div>
+);
+
+/**
+ * Virtual Assistant Visual
+ * Kanban board with moving task card
+ */
+export const VirtualAssistantVisual = () => (
+  <div className="relative h-full w-full bg-transparent flex flex-col items-center justify-start p-6 pt-8">
+    <div className="w-full max-w-xs bg-white dark:bg-[#1e2030] rounded-xl border border-[#f4f4f4] dark:border-[#2e3044] p-3 shadow-lg flex gap-2 h-36 relative">
+      
+      {/* 3 Columns */}
+      {[0, 1, 2].map(col => (
+        <div key={col} className="flex-1 bg-[#f4f4f4] dark:bg-black rounded-lg p-2 flex flex-col gap-2">
+          <div className={`h-1.5 w-8 rounded mb-1 ${col === 1 ? 'bg-[#ffb55a]' : col === 2 ? 'bg-[#4d87e0]' : 'bg-[#d9d9d9] dark:bg-[#444]'}`} />
+          {col === 0 && <div className="h-8 w-full bg-white dark:bg-[#2e3044] rounded shadow-sm border border-[#d9d9d9] dark:border-[#444]" />}
+          {col === 0 && <div className="h-8 w-full bg-white dark:bg-[#2e3044] rounded shadow-sm border border-[#d9d9d9] dark:border-[#444] opacity-50" />}
+          {col === 2 && <div className="h-8 w-full bg-white dark:bg-[#2e3044] rounded shadow-sm border border-[#d9d9d9] dark:border-[#444]" />}
+        </div>
+      ))}
+
+      {/* Animated Card */}
+      <motion.div
+        animate={{ 
+          x: ["0%", "105%", "210%"],
+          y: [0, -5, 0],
+          opacity: [0, 1, 0]
+        }}
+        transition={{ 
+          duration: 3, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          times: [0, 0.5, 1]
+        }}
+        className="absolute top-10 left-3 w-[28%] h-8 bg-white dark:bg-[#2e3044] rounded shadow-md border-2 border-[#4d87e0] z-10 flex items-center px-2"
+      >
+        <div className="h-1.5 w-1/2 bg-[#4d87e0] rounded" />
+      </motion.div>
+    </div>
+  </div>
+);
+
+/**
+ * Permit Pulling Visual
+ * Clipboard with animated Approved stamp
+ */
+export const PermitVisual = () => (
+  <div className="relative h-full w-full bg-transparent flex flex-col items-center justify-start pt-8">
+    <motion.div 
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="relative z-10 w-40 bg-white dark:bg-[#1e2030] rounded-lg shadow-xl border border-[#d9d9d9] dark:border-[#2e3044] p-4 flex flex-col items-center"
+    >
+      <div className="w-full flex justify-between items-center mb-4">
+        <div className="h-2 w-12 bg-[#d9d9d9] dark:bg-[#444] rounded" />
+        <FileCheck className="h-4 w-4 text-[#4d87e0]" />
+      </div>
+      
+      <div className="w-full space-y-2 mb-6">
+        <div className="h-1.5 w-full bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
+        <div className="h-1.5 w-5/6 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
+        <div className="h-1.5 w-4/6 bg-[#f4f4f4] dark:bg-[#2e3044] rounded" />
+      </div>
+
+      {/* Stamp */}
+      <motion.div
+        initial={{ scale: 3, opacity: 0, rotate: -20 }}
+        animate={{ scale: 1, opacity: 1, rotate: -10 }}
+        transition={{ delay: 1, type: "spring", stiffness: 200, damping: 10 }}
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-4 border-[#4d87e0] text-[#4d87e0] font-black text-sm px-2 py-1 rounded"
+      >
+        APPROVED
+      </motion.div>
+    </motion.div>
   </div>
 );
