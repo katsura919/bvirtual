@@ -16,9 +16,10 @@ const socialItems = [
   { label: '(619) 983-8540', link: 'tel:6199838540', icon: <Phone size={18} /> },
   { label: 'Info@bvirtualbusiness.com', link: 'mailto:Info@bvirtualbusiness.com', icon: <Mail size={18} /> }
 ];
-import { HeroSection } from '@/components/HeroSection';
-import { BenefitsSection } from '@/components/BenefitsSection';
-import { ServicesSection } from '@/components/ServicesSection';
+import { HeroSection } from "@/components/HeroSection";
+import { BenefitsSection } from "@/components/BenefitsSection";
+import { ServicesSection } from "@/components/ServicesSection";
+import { FaqSection } from "@/components/FaqSection";
 
 export default function Home() {
   return (
@@ -90,6 +91,7 @@ export default function Home() {
           <HeroSection />
           <BenefitsSection />
           <ServicesSection />
+          <FaqSection />
         </main>
       </div>
     </div>
