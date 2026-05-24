@@ -20,6 +20,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { FaqSection } from "@/components/FaqSection";
+import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 
 export default function Home() {
   return (
@@ -91,6 +92,7 @@ export default function Home() {
           <HeroSection />
           <BenefitsSection />
           <ServicesSection />
+          <WhyChooseUsSection />
           <FaqSection />
         </main>
       </div>
