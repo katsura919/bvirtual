@@ -1,75 +1,93 @@
+"use client";
+
 import React from 'react';
-import { ArrowRight, CheckCircle, FileText, BookOpen, Shield, Headphones } from 'lucide-react';
+import { motion } from "motion/react";
+import { ArrowRight, CheckCircle } from 'lucide-react';
+import { AvatarGroup } from '@/components/animate-ui/components/animate/avatar-group';
+
+const avatars = [
+  { src: "https://i.pravatar.cc/150?img=11", alt: "User 1" },
+  { src: "https://i.pravatar.cc/150?img=12", alt: "User 2" },
+  { src: "https://i.pravatar.cc/150?img=13", alt: "User 3" },
+  { src: "https://i.pravatar.cc/150?img=14", alt: "User 4" },
+];
 
 export const HeroSection = () => {
   return (
-    <section id="hero" className="bg-transparent px-8 py-[7vw] max-w-[1200px] mx-auto w-full">
-      <div className="flex items-center gap-[5.5%] flex-wrap">
-        {/* Text Side */}
-        <div className="flex-[1_1_480px]">
-          <div className="inline-block bg-[#fff4e7] rounded-[30px] px-[18px] py-[6px] mb-5">
-            <span className="text-[14px] font-semibold text-[#ffb55a]">
-              California Contractors & Small Businesses
-            </span>
-          </div>
+    <section id="hero" className="bg-transparent px-8 pt-4 pb-20 lg:pt-8 lg:pb-[10vw] max-w-[1200px] mx-auto w-full flex justify-center text-center">
+        {/* Text Side (Centered) */}
+        <div className="flex flex-col items-center w-full max-w-[800px]">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 bg-white dark:bg-[#1a1c29] p-1.5 pr-4 rounded-full border border-[#ebebeb] dark:border-[#2e3044] shadow-sm mb-6"
+          >
+             <AvatarGroup>
+               {avatars.map((avatar, idx) => (
+                 <img key={idx} src={avatar.src} alt={avatar.alt} className="w-8 h-8 rounded-full border-2 border-white dark:border-[#1a1c29] object-cover" />
+               ))}
+             </AvatarGroup>
+             <div className="text-sm font-semibold text-[#2e3044] dark:text-[#d9d9d9]">
+               Joined by 500+ CA Businesses
+             </div>
+          </motion.div>
 
-          <h1 className="font-['Open_Sans',sans-serif] text-[clamp(32px,4vw,48px)] font-bold text-[#2e3044] leading-[1.2] mb-5">
-            Smart Business<br />
-            Support, <span className="text-[#4d87e0]">All in One Place</span>
-          </h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-[clamp(44px,6vw,80px)] text-[#2e3044] dark:text-white leading-[1.05] tracking-tight mb-6"
+          >
+            <span className="font-light">Smart Business Support,</span><br />
+            <span className="font-black text-[#4d87e0]">All in One Place.</span>
+          </motion.h1>
 
-          <p className="text-[17px] font-light text-[#444] leading-[1.6] mb-8 max-w-[520px]">
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-[21px] font-normal text-[#555] dark:text-[#aaa] leading-[1.7] mb-10 max-w-[680px]"
+          >
             Helping contractors and small businesses across California operate smoother, faster, and completely stress-free. We take care of the details so you can focus on building and growing.
-          </p>
+          </motion.p>
 
-          <div className="flex gap-[14px] flex-wrap">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex gap-[16px] flex-wrap justify-center"
+          >
             <a href="#contact"
-              className="group px-[28px] py-[13px] bg-[#2e3044] text-white rounded-[30px] text-[17px] font-normal no-underline inline-flex items-center gap-[10px] transition-all duration-300 ease-in-out hover:pr-[2em] hover:pl-[0.7em]">
-              Get Started Today <ArrowRight size={16} />
+              className="group px-[32px] py-[16px] bg-[#2e3044] text-white rounded-[30px] text-[17px] font-bold no-underline inline-flex items-center gap-[10px] transition-all duration-300 hover:scale-105 shadow-md">
+              Get Started Today <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="#services"
-              className="group px-[28px] py-[13px] bg-[#4d87e0] text-white rounded-[30px] text-[17px] font-normal no-underline inline-flex items-center gap-[10px] transition-all duration-300 ease-in-out">
-              Our Services <ArrowRight size={16} />
+              className="group px-[32px] py-[16px] bg-[#4d87e0] text-white rounded-[30px] text-[17px] font-bold no-underline inline-flex items-center gap-[10px] transition-all duration-300 hover:scale-105 shadow-md shadow-[#4d87e0]/30">
+              Our Services
             </a>
-          </div>
+          </motion.div>
 
           {/* Trust badges */}
-          <div className="flex gap-[28px] mt-[36px] items-center flex-wrap">
-            {[
-              { text: 'Fully Remote' },
-              { text: 'California Specialists' },
-              { text: 'White-Glove Service' },
-            ].map(b => (
-              <div key={b.text} className="flex items-center gap-2">
-                <CheckCircle className="text-[#4d87e0]" size={16} />
-                <span className="text-[14px] font-normal text-[#777]">{b.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Visual Side */}
-        <div className="flex-[0_0_360px] flex flex-col gap-4 items-center mt-10 md:mt-0">
-          {/* Decorative card showing service categories */}
-          <div className="bg-white rounded-[5px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.15)] p-[28px] w-full">
-            <div className="text-[15px] font-bold text-[#2e3044] mb-[18px]">
-              What We Handle For You
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="mt-12 flex flex-col items-center gap-4"
+          >
+            <div className="flex gap-[28px] mt-2 items-center justify-center flex-wrap">
+              {[
+                { text: 'Fully Remote' },
+                { text: 'California Specialists' },
+                { text: 'White-Glove Service' },
+              ].map(b => (
+                 <div key={b.text} className="flex items-center gap-2">
+                   <CheckCircle className="text-[#4d87e0]" size={16} />
+                   <span className="text-[15px] font-medium text-[#777] dark:text-[#aaa]">{b.text}</span>
+                 </div>
+              ))}
             </div>
-            {[
-              { icon: <FileText size={22} className="text-[#4d87e0]" />, label: 'Permits & Licenses' },
-              { icon: <BookOpen size={22} className="text-[#4d87e0]" />, label: 'Bookkeeping & Reporting' },
-              { icon: <Shield size={22} className="text-[#ffb55a]" />, label: 'Compliance & Filing' },
-              { icon: <Headphones size={22} className="text-[#4d87e0]" />, label: 'Ongoing Support' },
-            ].map(item => (
-              <div key={item.label} className="flex items-center gap-[14px] py-[12px] border-b border-[#f4f4f4] transition-transform duration-300 ease-in-out hover:scale-[1.02]">
-                <div className="w-[28px] flex justify-center">{item.icon}</div>
-                <span className="text-[15px] font-normal text-[#2e3044]">{item.label}</span>
-                <CheckCircle className="text-[#4d87e0] ml-auto" size={16} />
-              </div>
-            ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
     </section>
   );
 };

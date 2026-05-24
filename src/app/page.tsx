@@ -40,6 +40,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { FaqSection } from "@/components/FaqSection";
 import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 import { QuoteSection } from "@/components/QuoteSection";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -107,6 +108,7 @@ export default function Home() {
           <FaqSection />
           <QuoteSection />
         </main>
+        <Footer />
       </div>
     </div>
   );

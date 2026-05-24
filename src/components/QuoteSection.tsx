@@ -1,14 +1,19 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Send, 
   ChevronDown, 
   FileText, 
   CheckCircle2, 
   Calculator,
-  Sparkles
+  Sparkles,
+  User,
+  Phone,
+  Mail,
+  Briefcase,
+  Loader2
 } from "lucide-react";
 import { Search as AnimatedSearch } from "@/components/animate-ui/icons/search";
 import {
@@ -137,6 +142,18 @@ const TailoredQuoteVisual = ({ selectedService }: { selectedService: string }) =
 
 export function QuoteSection() {
   const [selectedService, setSelectedService] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 3000);
+    }, 1500);
+  };
 
   return (
     <section id="quote" className="relative w-full py-24 bg-white dark:bg-[#0a0a0a] overflow-hidden z-10">
@@ -174,51 +191,85 @@ export function QuoteSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Form */}
           <motion.form 
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-[#f8f9fa] dark:bg-[#111] border-2 border-dashed border-[#ebebeb] dark:border-[#2e3044] p-8 md:p-10 rounded-3xl shadow-sm flex flex-col gap-6"
+            className="bg-[#f8f9fa] dark:bg-[#111] border-2 border-dashed border-[#ebebeb] dark:border-[#2e3044] p-8 md:p-10 rounded-3xl shadow-sm flex flex-col gap-6 relative"
           >
+            <div>
+              <h3 className="text-2xl font-bold text-[#2e3044] dark:text-white">Project Brief</h3>
+              <p className="text-[#999] text-sm mt-1">Get A Quote That Fits Your Needs Perfectly.</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-sm font-bold text-[#2e3044] dark:text-white">Your Name</label>
+              <div className="relative group/field">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#999] group-focus-within/field:text-[#4d87e0] transition-colors pointer-events-none z-10">
+                  <User className="w-5 h-5" />
+                </div>
                 <input 
                   type="text" 
                   id="name" 
-                  className="bg-white dark:bg-[#1a1c29] border border-[#d9d9d9] dark:border-[#2e3044] rounded-xl px-4 py-3 text-[#2e3044] dark:text-white placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#4d87e0] transition-all"
+                  required
+                  className="peer w-full bg-white dark:bg-[#1a1c29] border-2 border-transparent rounded-xl pl-12 pr-4 pt-6 pb-2 text-[#2e3044] dark:text-white placeholder-transparent focus:outline-none focus:border-[#4d87e0]/30 focus:ring-4 focus:ring-[#4d87e0]/10 transition-all shadow-[0_0_0_1px_#d9d9d9] dark:shadow-[0_0_0_1px_#2e3044] focus:shadow-[0_0_0_1px_#4d87e0]"
                   placeholder="John Doe"
                 />
+                <label 
+                  htmlFor="name" 
+                  className="absolute left-12 top-2 text-[10px] font-bold text-[#999] uppercase tracking-wider transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-2 peer-focus:text-[10px] peer-focus:font-bold peer-focus:uppercase peer-focus:text-[#4d87e0] pointer-events-none z-10"
+                >
+                  Your Name
+                </label>
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="number" className="text-sm font-bold text-[#2e3044] dark:text-white">Your Number</label>
+              <div className="relative group/field">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#999] group-focus-within/field:text-[#4d87e0] transition-colors pointer-events-none z-10">
+                  <Phone className="w-5 h-5" />
+                </div>
                 <input 
                   type="tel" 
                   id="number" 
-                  className="bg-white dark:bg-[#1a1c29] border border-[#d9d9d9] dark:border-[#2e3044] rounded-xl px-4 py-3 text-[#2e3044] dark:text-white placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#4d87e0] transition-all"
+                  required
+                  className="peer w-full bg-white dark:bg-[#1a1c29] border-2 border-transparent rounded-xl pl-12 pr-4 pt-6 pb-2 text-[#2e3044] dark:text-white placeholder-transparent focus:outline-none focus:border-[#4d87e0]/30 focus:ring-4 focus:ring-[#4d87e0]/10 transition-all shadow-[0_0_0_1px_#d9d9d9] dark:shadow-[0_0_0_1px_#2e3044] focus:shadow-[0_0_0_1px_#4d87e0]"
                   placeholder="(123) 456-7890"
                 />
+                <label 
+                  htmlFor="number" 
+                  className="absolute left-12 top-2 text-[10px] font-bold text-[#999] uppercase tracking-wider transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-2 peer-focus:text-[10px] peer-focus:font-bold peer-focus:uppercase peer-focus:text-[#4d87e0] pointer-events-none z-10"
+                >
+                  Your Number
+                </label>
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-sm font-bold text-[#2e3044] dark:text-white">Your Email</label>
+            <div className="relative group/field">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#999] group-focus-within/field:text-[#4d87e0] transition-colors pointer-events-none z-10">
+                <Mail className="w-5 h-5" />
+              </div>
               <input 
                 type="email" 
                 id="email" 
-                className="bg-white dark:bg-[#1a1c29] border border-[#d9d9d9] dark:border-[#2e3044] rounded-xl px-4 py-3 text-[#2e3044] dark:text-white placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#4d87e0] transition-all"
+                required
+                className="peer w-full bg-white dark:bg-[#1a1c29] border-2 border-transparent rounded-xl pl-12 pr-4 pt-6 pb-2 text-[#2e3044] dark:text-white placeholder-transparent focus:outline-none focus:border-[#4d87e0]/30 focus:ring-4 focus:ring-[#4d87e0]/10 transition-all shadow-[0_0_0_1px_#d9d9d9] dark:shadow-[0_0_0_1px_#2e3044] focus:shadow-[0_0_0_1px_#4d87e0]"
                 placeholder="john@example.com"
               />
+              <label 
+                htmlFor="email" 
+                className="absolute left-12 top-2 text-[10px] font-bold text-[#999] uppercase tracking-wider transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-2 peer-focus:text-[10px] peer-focus:font-bold peer-focus:uppercase peer-focus:text-[#4d87e0] pointer-events-none z-10"
+              >
+                Your Email
+              </label>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold text-[#2e3044] dark:text-white">Service Required</label>
+            <div className="relative group/field z-20">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#999] group-focus-within/field:text-[#4d87e0] transition-colors pointer-events-none z-10">
+                <Briefcase className="w-5 h-5" />
+              </div>
               <DropdownMenu>
-                <DropdownMenuTrigger className="bg-white dark:bg-[#1a1c29] border border-[#d9d9d9] dark:border-[#2e3044] rounded-xl px-4 py-3 text-left focus:outline-none focus:ring-2 focus:ring-[#4d87e0] transition-all flex items-center justify-between group outline-none">
-                  <span className={selectedService ? "text-[#2e3044] dark:text-white" : "text-[#999]"}>
-                    {selectedService || "Select a service..."}
+                <DropdownMenuTrigger className="w-full bg-white dark:bg-[#1a1c29] border-2 border-transparent rounded-xl pl-12 pr-4 pt-6 pb-2 text-left focus:outline-none focus:border-[#4d87e0]/30 focus:ring-4 focus:ring-[#4d87e0]/10 transition-all shadow-[0_0_0_1px_#d9d9d9] dark:shadow-[0_0_0_1px_#2e3044] focus:shadow-[0_0_0_1px_#4d87e0] flex items-center justify-between group outline-none">
+                  <span className={selectedService ? "text-[#2e3044] dark:text-white" : "text-transparent"}>
+                    {selectedService || "Select"}
                   </span>
-                  <ChevronDown className="h-4 w-4 opacity-50 group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                  <ChevronDown className="h-4 w-4 text-[#999] group-data-[state=open]:rotate-180 transition-transform duration-200" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-(--radix-dropdown-menu-trigger-width) bg-white dark:bg-[#1a1c29] border border-[#d9d9d9] dark:border-[#2e3044] rounded-xl p-1 shadow-lg z-50">
                   {services.map((service) => (
@@ -232,14 +283,38 @@ export function QuoteSection() {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+              <label className={`absolute left-12 pointer-events-none transition-all uppercase tracking-wider font-bold text-[#999] z-10 ${selectedService ? 'top-2 text-[10px]' : 'top-4 text-sm normal-case font-medium'} group-focus-within/field:top-2 group-focus-within/field:text-[10px] group-focus-within/field:font-bold group-focus-within/field:uppercase group-focus-within/field:text-[#4d87e0]`}>
+                Service Required
+              </label>
             </div>
 
             <button 
               type="submit" 
-              className="mt-4 bg-[#4d87e0] hover:bg-[#3a6bb5] text-white font-bold text-lg py-4 px-8 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 group"
+              disabled={isSubmitting || isSuccess || !selectedService}
+              className={`mt-4 text-white font-bold text-lg py-4 px-8 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 relative overflow-hidden group h-[60px] ${
+                isSuccess 
+                  ? 'bg-green-500 hover:bg-green-600 cursor-default shadow-green-500/20' 
+                  : isSubmitting || !selectedService
+                    ? 'bg-[#d9d9d9] dark:bg-[#2e3044] text-[#999] cursor-not-allowed'
+                    : 'bg-[#4d87e0] hover:bg-[#3a6bb5] shadow-[#4d87e0]/20'
+              }`}
             >
-              Submit Request
-              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <AnimatePresence mode="wait">
+                {isSubmitting ? (
+                  <motion.div key="loading" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="flex items-center gap-2 absolute">
+                     <Loader2 className="w-5 h-5 animate-spin" /> Processing...
+                  </motion.div>
+                ) : isSuccess ? (
+                  <motion.div key="success" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} className="flex items-center gap-2 absolute">
+                     <CheckCircle2 className="w-5 h-5" /> Request Sent!
+                  </motion.div>
+                ) : (
+                  <motion.div key="default" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="flex items-center gap-2 absolute">
+                     Submit Request
+                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </motion.form>
 
