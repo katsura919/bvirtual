@@ -10,34 +10,86 @@ const menuItems = [
   { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
 ];
 
+import { Phone, Mail } from 'lucide-react';
+
 const socialItems = [
-  { label: '(619) 983-8540', link: 'tel:6199838540' },
-  { label: 'Info@bvirtualbusiness.com', link: 'mailto:Info@bvirtualbusiness.com' }
+  { label: '(619) 983-8540', link: 'tel:6199838540', icon: <Phone size={18} /> },
+  { label: 'Info@bvirtualbusiness.com', link: 'mailto:Info@bvirtualbusiness.com', icon: <Mail size={18} /> }
 ];
+import { HeroSection } from '@/components/HeroSection';
+import { BenefitsSection } from '@/components/BenefitsSection';
 
 export default function Home() {
   return (
-    <div style={{ height: '100vh', background: 'var(--background)' }}>
-      <StaggeredMenu
-        position="right"
-        items={menuItems}
-        socialItems={socialItems}
-        displaySocials
-        displayItemNumbering={true}
-        menuButtonColor="var(--primary)"
-        openMenuButtonColor="var(--primary)"
-        changeMenuColorOnOpen={true}
-        colors={['var(--secondary)', 'var(--primary)']}
-        logoUrl="/assets/Bvirtual-Logo-2.png"
-        accentColor="var(--accent)"
-        isFixed={true}
-        onMenuOpen={() => console.log('Menu opened')}
-        onMenuClose={() => console.log('Menu closed')}
+    <div className="min-h-screen w-full relative bg-white">
+      {/* Dashed Grid */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #e7e5e4 1px, transparent 1px),
+            linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+          `,
+          backgroundSize: "20px 20px",
+          backgroundPosition: "0 0, 0 0",
+          maskImage: `
+            repeating-linear-gradient(
+              to right,
+              black 0px,
+              black 3px,
+              transparent 3px,
+              transparent 8px
+            ),
+            repeating-linear-gradient(
+              to bottom,
+              black 0px,
+              black 3px,
+              transparent 3px,
+              transparent 8px
+            )
+          `,
+          WebkitMaskImage: `
+            repeating-linear-gradient(
+              to right,
+              black 0px,
+              black 3px,
+              transparent 3px,
+              transparent 8px
+            ),
+            repeating-linear-gradient(
+              to bottom,
+              black 0px,
+              black 3px,
+              transparent 3px,
+              transparent 8px
+            )
+          `,
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        }}
       />
-      <main className="flex flex-col items-center justify-center h-full">
-        <h1 className="text-4xl font-bold">BVirtual</h1>
-        <p className="mt-4 text-lg">Smart Business Support for Contractors & Small Businesses</p>
-      </main>
+      <div className="relative z-10">
+        <StaggeredMenu
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials
+          displayItemNumbering={true}
+          menuButtonColor="var(--primary)"
+          openMenuButtonColor="var(--primary)"
+          changeMenuColorOnOpen={true}
+          colors={['var(--secondary)', 'var(--primary)']}
+          logoUrl="/assets/Bvirtual-Logo-2.png"
+          accentColor="var(--accent)"
+          isFixed={true}
+          onMenuOpen={() => console.log('Menu opened')}
+          onMenuClose={() => console.log('Menu closed')}
+        />
+        <main className="min-h-screen pt-[120px]">
+          <HeroSection />
+          <BenefitsSection />
+        </main>
+      </div>
     </div>
   );
 }

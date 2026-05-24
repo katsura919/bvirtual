@@ -9,6 +9,7 @@ export interface StaggeredMenuItem {
 export interface StaggeredMenuSocialItem {
   label: string;
   link: string;
+  icon?: React.ReactNode;
 }
 export interface StaggeredMenuProps {
   position?: 'left' | 'right';
@@ -417,7 +418,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </div>
 
         <header
-          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-20"
+          className="staggered-menu-header absolute top-0 left-0 right-0 mx-auto w-full max-w-6xl flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-20"
           aria-label="Main navigation header"
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
@@ -525,8 +526,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="sm-socials-link text-[1.2rem] font-medium text-[#111] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear"
+                        className="sm-socials-link text-[1.2rem] font-medium text-[#111] no-underline relative inline-flex items-center gap-2 py-[2px] transition-[color,opacity] duration-300 ease-linear"
                       >
+                        {s.icon && <span className="sm-socials-icon flex items-center">{s.icon}</span>}
                         {s.label}
                       </a>
                     </li>
