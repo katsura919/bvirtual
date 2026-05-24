@@ -3,6 +3,8 @@ import { Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+import { CustomCursor } from "@/components/CustomCursor";
+
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
@@ -21,7 +23,10 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "font-sans", inter.variable)}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

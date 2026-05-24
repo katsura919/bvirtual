@@ -74,7 +74,7 @@ export const HeroSection = () => {
             transition={{ delay: 0.35 }}
             className="mt-12 flex flex-col items-center gap-4"
           >
-            <div className="flex gap-[28px] mt-2 items-center justify-center flex-wrap">
+            <div className="flex gap-[28px] mt-[48px] items-center justify-center flex-wrap">
               {[
                 { text: 'Fully Remote' },
                 { text: 'California Specialists' },
