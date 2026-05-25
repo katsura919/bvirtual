@@ -20,15 +20,15 @@ export const HeroSection = () => {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-3 bg-white dark:bg-[#1a1c29] p-1.5 pr-4 rounded-full border border-[#ebebeb] dark:border-[#2e3044] shadow-sm mb-6"
+            className="flex flex-col items-center gap-2 mb-6"
           >
              <AvatarGroup>
                {avatars.map((avatar, idx) => (
                  <img key={idx} src={avatar.src} alt={avatar.alt} className="w-8 h-8 rounded-full border-2 border-white dark:border-[#1a1c29] object-cover" />
                ))}
              </AvatarGroup>
-             <div className="text-sm font-semibold text-[#2e3044] dark:text-[#d9d9d9]">
-               Joined by 500+ CA Businesses
+             <div className="text-sm font-medium text-[#777] dark:text-[#aaa]">
+               Trusted by businesses
              </div>
           </motion.div>
 

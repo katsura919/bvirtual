@@ -156,7 +156,7 @@ export function QuoteSection() {
   };
 
   return (
-    <section id="quote" className="relative w-full py-24 bg-white dark:bg-[#0a0a0a] overflow-hidden z-10">
+    <section id="quote" className="relative w-full py-24 bg-transparent overflow-hidden z-10">
       <div className="max-w-[1200px] px-8 mx-auto relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
@@ -324,7 +324,7 @@ export function QuoteSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="w-full h-full min-h-[400px] flex items-center justify-center bg-transparent rounded-3xl p-8"
+            className="hidden lg:flex w-full h-full min-h-[400px] items-center justify-center bg-transparent rounded-3xl p-8"
           >
             <div className="w-full h-full relative">
               <TailoredQuoteVisual selectedService={selectedService} />

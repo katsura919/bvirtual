@@ -83,8 +83,8 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative w-full py-24 bg-white dark:bg-[#060606] overflow-hidden">
-      <div className="container px-4 mx-auto max-w-4xl relative z-10">
+    <section id="faq" className="relative w-full py-24 bg-transparent overflow-hidden">
+      <div className="max-w-4xl px-8 mx-auto relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}

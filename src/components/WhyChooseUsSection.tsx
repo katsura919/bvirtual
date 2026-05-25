@@ -39,7 +39,7 @@ const reasons = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="relative w-full py-24 bg-white overflow-hidden z-10">
+    <section className="relative w-full py-24 bg-transparent overflow-hidden z-10">
       <div className="max-w-[1200px] px-8 mx-auto">
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
@@ -72,7 +72,7 @@ export function WhyChooseUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex flex-col p-8 rounded-2xl bg-[#f8f9fa] border-2 border-dashed border-[#ebebeb] transition-all duration-300"
+                className="flex flex-col p-8 rounded-2xl bg-white border border-dashed border-neutral-300 dark:border-neutral-800 transition-all duration-300"
               >
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#4d87e0]/10 text-[#4d87e0]">
                   <Icon size={24} />

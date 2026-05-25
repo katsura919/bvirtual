@@ -3,6 +3,7 @@
 import { ReactLenis } from 'lenis/react';
 import CardNav from '@/components/CardNav';
 import { Phone, Mail } from 'lucide-react';
+import DotGrid from '@/components/DotGrid';
 
 const cardNavItems = [
   {
@@ -46,53 +47,10 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <ReactLenis root>
-      <div className="min-h-screen w-full relative bg-white">
-        {/* Dashed Grid */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #e7e5e4 1px, transparent 1px),
-              linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
-            `,
-            backgroundSize: "20px 20px",
-            backgroundPosition: "0 0, 0 0",
-            maskImage: `
-              repeating-linear-gradient(
-                to right,
-                black 0px,
-                black 3px,
-                transparent 3px,
-                transparent 8px
-              ),
-              repeating-linear-gradient(
-                to bottom,
-                black 0px,
-                black 3px,
-                transparent 3px,
-                transparent 8px
-              )
-            `,
-            WebkitMaskImage: `
-              repeating-linear-gradient(
-                to right,
-                black 0px,
-                black 3px,
-                transparent 3px,
-                transparent 8px
-              ),
-              repeating-linear-gradient(
-                to bottom,
-                black 0px,
-                black 3px,
-                transparent 3px,
-                transparent 8px
-              )
-            `,
-            maskComposite: "intersect",
-            WebkitMaskComposite: "source-in",
-          }}
-        />
+      <div className="min-h-screen w-full relative bg-background">
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <DotGrid baseColor="#d9d9d9" activeColor="#4d87e0" gap={32} dotSize={3}/>
+        </div>
         <div className="relative z-10">
           <CardNav
             logo="/assets/Bvirtual-Logo-2.png"

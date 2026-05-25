@@ -17,9 +17,9 @@ const InstagramIcon = () => (
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#f8f9fa] dark:bg-[#111] border-t-2 border-dashed border-[#ebebeb] dark:border-[#2e3044] pt-16 pb-8 relative z-20">
+    <footer className="w-full bg-[#f8f9fa] dark:bg-[#111] border-t-2 border-dashed border-[#ebebeb] dark:border-[#2e3044] pt-12 md:pt-16 pb-8 relative z-20">
       <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           {/* Brand */}
           <div className="space-y-4">
              <div className="flex items-center">
@@ -101,10 +101,10 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[#ebebeb] dark:border-[#2e3044] flex flex-col md:flex-row items-center justify-between gap-4">
-           <div className="text-[#999] text-sm font-medium">
+           <div className="text-[#999] text-sm font-medium text-center md:text-left">
              © {new Date().getFullYear()} BVirtual. All rights reserved.
            </div>
-           <div className="flex gap-6 text-[#999] text-sm font-medium">
+           <div className="flex flex-wrap justify-center gap-6 text-[#999] text-sm font-medium">
              <Link href="#" className="hover:text-[#4d87e0] transition-colors">Privacy Policy</Link>
              <Link href="#" className="hover:text-[#4d87e0] transition-colors">Terms of Service</Link>
            </div>
